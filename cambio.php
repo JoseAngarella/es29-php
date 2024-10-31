@@ -28,9 +28,15 @@
         $giorno_settimana=$traduzioneGiorni[$giorno_settimana];
         if($giorno_settimana=="domenica" || $giorno_settimana=="sabato"){
             $importo_con_commissioni=$importo * 0.95;
+            $tipo_commissione="commisione maggiorata";
+
         }else{
             $importo_con_commissioni=$importo * 0.975;
+            $tipo_commissione="commisione non maggiorata";
         }
+        $commissioni=$importo-$importo_con_commissioni;
+
+
         $importo_valuta_di_arrivo_senza_commissioni=$importo*$cambio[$valuta];
         $importo_valuta_di_arrivo=$importo_con_commissioni*$cambio[$valuta];
 
@@ -40,10 +46,12 @@
         <p>Importo in € inserito=$importo</p>
         <img src='./images/it-flag.gif' alt='bandiera italiana'>
         <p>Importo nella valuta di arrivo escludendo commissioni = $importo_valuta_di_arrivo_senza_commissioni</p>
-        <p>Commissioni= ()</p>
+        <p>Commissioni= $commissioni €, $tipo_commissione</p>
         <p>Importo nella valuta di arrivo con commissioni = $importo_valuta_di_arrivo</p>
-        
+        <br><a href='valuta.html'>Torna alla pagina iniziale</a>
         </div>"
+
+        
         
 
     ?>
